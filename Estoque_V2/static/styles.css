@@ -1,0 +1,30 @@
+/* Estilo para o menu superior */
+nav.navbar {
+    margin-bottom: 20px;
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-weight: bold;
+    color: #5a5a5a !important;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #007bff !important;
+}
+
+/* Estilo para a marca (logo ou nome da aplicação) */
+.navbar-brand {
+    font-weight: bold;
+    color: #333 !important;
+}
+
+.navbar-brand:hover {
+    color: #007bff !important;
+}
+
+/* Ajuste para os itens do menu em telas pequenas */
+@media (max-width: 767px) {
+    .navbar-nav {
+        text-align: center;
+    }
+}

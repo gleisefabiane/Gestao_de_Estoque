@@ -1,0 +1,10 @@
+estoque/
+├── app.py
+├── templates/
+│   ├── login.html
+│   ├── cadastro.html
+│   ├── estoque.html
+│   ├── relatorios.html
+│   └── base.html
+├── static/
+│   ├── styles.css

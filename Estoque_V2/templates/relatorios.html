@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Relatórios de Estoque</h2>
+    
+    <!-- Relatório de Produtos em Estoque -->
+    <div class="card mt-4">
+        <div class="card-header">
+            <h5>Produtos em Estoque</h5>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nome do Produto</th>
+                        <th>Quantidade</th>
+                        <th>Preço</th>
+                        <th>Data de Validade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produto in produtos %}
+                    <tr>
+                        <td>{{ produto[1] }}</td>
+                        <td>{{ produto[2] }}</td>
+                        <td>R$ {{ produto[3]|float if produto[3] is string and produto[3].replace('.', '', 1).isdigit() else 0.00 | round(2) }}</td>
+
+                        
+                        <td>{{ produto[4] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Relatório de Estoque Mínimo (exemplo) -->
+    <div class="card mt-4">
+        <div class="card-header">
+            <h5>Relatório de Estoque Mínimo</h5>
+        </div>
+        <div class="card-body">
+            <p>Estoque a ser requerido. </p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Nome do Produto</th>
+                        <th>Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produto in estoque_minimo %}
+                    <tr>
+                        <td>{{ produto[1] }}</td>
+                        <td>{{ produto[2] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Relatório de Vendas Realizadas (exemplo) -->
+    <div class="card mt-4">
+        <div class="card-header">
+            <h5>Relatório de Entrega dos produtos </h5>
+        </div>
+        <div class="card-body">
+            <p>Visualize as entregas realizadas.</p>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Quantidade Vendida</th>
+                        <th>Data da Venda</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for venda in vendas %}
+                    <tr>
+                        <td>{{ venda[1] }}</td>
+                        <td>{{ venda[2] }}</td>
+                        <td>{{ venda[3] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

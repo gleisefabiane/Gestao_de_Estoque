@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Editar Produto</h2>
+
+    <form action="{{ url_for('editar_produto', produto_id=produto[0]) }}" method="POST" class="mt-4">
+
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome do Produto</label>
+            <input type="text" class="form-control" id="nome" name="nome" value="{{ produto[1] }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="quantidade" class="form-label">Quantidade</label>
+            <input type="number" class="form-control" id="quantidade" name="quantidade" value="{{ produto[2] }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="preco" class="form-label">Preço</label>
+            <input type="number" step="0.01" class="form-control" id="preco" name="preco" value="{{ produto[3] }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="validade" class="form-label">Data de Validade</label>
+            <input type="date" class="form-control" id="validade" name="validade" value="{{ produto[4] }}" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Atualizar Produto</button>
+    </form>
+</div>
+{% endblock %}
